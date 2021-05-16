@@ -23,12 +23,10 @@ module.exports.requireAuth = (req, res, next) => {
         console.log(err);
       } else {
         console.log(decodedToken.id);
-        res.send("ok");
-        next();
+        res.send(decodedToken.id);
       }
     });
   } else {
     console.log("No token");
-    res.send("veuillez vous logger");
   }
 };

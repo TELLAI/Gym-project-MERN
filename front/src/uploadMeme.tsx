@@ -7,7 +7,7 @@ import { faDumbbell } from "@fortawesome/free-solid-svg-icons";
 import Select from "react-select";
 
 const uploadMeme = {
-  UploadData : function () {
+  UploadData : () => {
     const data = [
       { value: "Category" },
       { value: "Sport" },

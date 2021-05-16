@@ -21,6 +21,12 @@ img {
     width: 10rem;
 }
 
+.img-mario{
+  display: flex;
+  width: 20%;
+  margin: auto;
+}
+
 h1 {
   color: #FFD369;
   font-style: Allerta Stencil;
@@ -40,8 +46,8 @@ h1 {
 }
 .entete {
   display: flex;
-  width: 50%;
-  margin: auto;
+  width: 40%;
+  margin: 1rem auto;
 }
 .muscul {
   margin: 0 1rem ;
@@ -51,10 +57,12 @@ h1 {
   border-style: solid;
   border-color: black;
   border-radius: 1rem;
-  width: 45%;
+  width: 40%;
   margin: auto;
   padding: 0.5rem;
- 
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
 }
 .s1{
   width: 35%;
@@ -71,4 +79,51 @@ h1 {
 }
 .upfile {
   width: 27%;
+}
+.pics {
+  display: flex;
+	flex-direction: column;
+  align-items: stretch;
+}
+.confirm2 {
+  width: 30%;
+  margin: 0.5rem auto;
+}
+  .active-btn {
+    background:#3d3c3a;
+    color: azure;
+  }
+
+li > button {
+  border-radius: 0.5rem;
+  height: 2rem;
+}
+.connection-form {
+  display: flex;
+  justify-content: center;
+  margin: 5rem;
+}
+
+.connection-form > form {
+  margin: 2rem 0;
+}
+
+.connection-form > form > input {
+  height: 1.3rem;
+  margin: 0.5rem 0;
+  border-radius: 0.5rem;
+}
+
+.form-container{
+  margin: 0rem 2rem;
+}
+
+.form-container > ul {
+  list-style: none;
+}
+.img-container {
+  padding: 2rem;
+}
+.img-container > img {
+  margin: 2rem 0;
 }

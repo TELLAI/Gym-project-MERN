@@ -9,8 +9,8 @@ module.exports.readMeme = (req, res) => {
       if (err) throw err;
       var dbo = db.db("mydb");
       dbo
-        .collection("test")
-        .find({}).limit(4)
+        .collection("test2")
+        .find({}).skip(6)
         .toArray(function (err, result) {
           if (err) throw err;
           res.send(result);
@@ -27,7 +27,7 @@ module.exports.deleteMeme = async (req, res) => {
     if (err) throw err;
     var dbo = db.db("mydb");
     dbo
-      .collection("test")
+      .collection("test2")
       .deleteOne({ _id : id})
       res.send("ok")
   });
@@ -40,7 +40,7 @@ module.exports.categorieMeme = async (req, res) => {
     if (err) throw err;
     var dbo = db.db("mydb");
     dbo
-      .collection("test")
+      .collection("test2")
       .find({ category: category })
       .limit(4)
       .toArray(function (err, result) {
@@ -59,7 +59,7 @@ module.exports.searchMeme = async (req, res) => {
     if (err) throw err;
     var dbo = db.db("mydb");
     dbo
-      .collection("test")
+      .collection("test2")
       .find({ name: search })
       .toArray(function (err, result) {
         if (err) throw err;
@@ -80,7 +80,7 @@ module.exports.addForm = async (req, res) => {
   const {name, category, urlMeme} = req.body
   const extension = urlMeme.split("\\")
   const token = req.cookies.jwt;
-  let idLogin = ""
+  let idLogin
 
   jwt.verify(token, process.env.TOKEN_SECRET, async (err, decodedToken) => {
     if (err) {
@@ -103,7 +103,7 @@ module.exports.addForm = async (req, res) => {
         url: `https://gymteststorageaccount.blob.core.windows.net/meme-storage/${extension[2]}` ,
       },
     ];
-    dbo.collection("test").insertMany(myobj, function (err, result) {
+    dbo.collection("test2").insertMany(myobj, function (err, result) {
       if (err) throw err;
       console.log("Number of documents inserted: " + result.insertedCount);
       res.send("insert ok");
@@ -130,7 +130,7 @@ module.exports.profilMeme = async (req, res) => {
     if (err) throw err;
     var dbo = db.db("mydb");
     dbo
-      .collection("test")
+      .collection("test2")
       .find({ idLogin: idLogin }).limit(4).skip(0)
       .toArray(function (err, result) {
         if (err) throw err;
